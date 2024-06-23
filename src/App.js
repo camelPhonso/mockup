@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react"
+
+import allRoutes from "./routes"
+import Dropdown from "./components/Dropdown"
+import "./App.css"
 
 function App() {
+  const [routes, setRoutes] = useState(null)
+  const [searchParam, setSearchParam] = useState(null)
+
+  useEffect(() => {
+    const getEmploymentRoutes = async () => {
+      setRoutes(allRoutes)
+    }
+
+    getEmploymentRoutes()
+  }, [setRoutes])
+
+  const changeHandler = selectedOption => {
+    setSearchParam(selectedOption)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>I'm Running!!!</h1>
+
+      {routes && (
+        <Dropdown
+          options={routes}
+          keyName={"name"}
+          onChange={changeHandler}
+        />
+      )}
+
+      <select disabled={searchParam === null}>
+        <option>fh</option>
+      </select>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

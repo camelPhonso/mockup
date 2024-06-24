@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-export default function Dropdown() {
+export default function Dropdown(props) {
     const [selectedValue, setSelectedValue] = useState('');
  
     function handleChange (event)  {
@@ -8,7 +8,7 @@ export default function Dropdown() {
 
     return (
         <div>
-            
+            <p>{props[0].name}</p>
           <select id="dropdown" value={selectedValue} onChange={handleChange}>
             <option value="">--Please choose an option--</option>
             <option value="option1">Option 1</option>

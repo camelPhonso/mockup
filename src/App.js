@@ -1,5 +1,5 @@
 import "./App.css"
-import Dropdown from "./utils/dropdown"
+import Dropdown from "./components/dropdown"
 
 
 function App() {

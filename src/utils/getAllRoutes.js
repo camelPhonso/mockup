@@ -1,3 +1,8 @@
+/**
+ *
+ * @summary this is an async function that fetches data we need
+ * @returns {array} a collection of all routes available to us
+ */
 export default async function getAllRoutes() {
   return [
     {

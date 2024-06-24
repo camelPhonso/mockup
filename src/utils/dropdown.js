@@ -1,14 +1,14 @@
 import React, {useState} from "react";
-function Dropdown = () => {
-    function [selectedValue, setSelectedValue] = useState('');
+export default function Dropdown() {
+    const [selectedValue, setSelectedValue] = useState('');
  
-    function handleChange = (event) => {
+    function handleChange (event)  {
         setSelectedValue(event.target.value);
     };
 
     return (
         <div>
-          <label htmlFor="dropdown">choose an option</label>
+            
           <select id="dropdown" value={selectedValue} onChange={handleChange}>
             <option value="">--Please choose an option--</option>
             <option value="option1">Option 1</option>
@@ -19,4 +19,3 @@ function Dropdown = () => {
         </div>
     );
 };
-export default Dropdown;

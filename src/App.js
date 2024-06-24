@@ -1,17 +1,14 @@
 import "./App.css"
-import "dropdown.js"
+import Dropdown from "./utils/dropdown"
+
 
 function App() {
   return (
     <div className="App">
       <h1>Your Component should be showing on this page!!!</h1>
+      <Dropdown />
+    
     </div>
-  )
-}
-
-function dropdown() {
-  return (
-    <div 
   )
 }
 export default App

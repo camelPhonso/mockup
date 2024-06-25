@@ -27,18 +27,11 @@ function App() {
         showId={false} 
       />
       {selectedRoute && <p>You selected: {selectedRoute}</p>}
+
       
-      <Dropdown 
-        routes={allRoutes} 
-        selectedRoute={selectedRouteWithId} 
-        setSelectedRoute={setSelectedRouteWithId} 
-        showId={true} 
-      />
       {selectedRouteWithId && <p>You selected: {selectedRouteWithId}</p>}
     </div>
   );
 }
 
 export default App;
-
-

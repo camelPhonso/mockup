@@ -1,21 +1,25 @@
-import React, {useState} from "react";
-export default function Dropdown(props) {
-    const [selectedValue, setSelectedValue] = useState('');
- 
-    function handleChange (event)  {
-        setSelectedValue(event.target.value);
-    };
+import React from "react";
 
-    return (
-        <div>
-            <p>{props[0].name}</p>
-          <select id="dropdown" value={selectedValue} onChange={handleChange}>
-            <option value="">--Please choose an option--</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-          </select>
-          {selectedValue && <p>You selected: {selectedValue}</p>}
-        </div>
-    );
-};
+export default function Dropdown({ routes, selectedRoute, setSelectedRoute }) {
+  function handleChange(event) {
+    setSelectedRoute(event.target.value);
+  }
+
+  // Ensure routes are defined before accessing them
+  if (!routes || routes.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <select id="dropdown" value={selectedRoute} onChange={handleChange}>
+        <option value="">--Please choose an option--</option>
+        {routes.map((route, index) => (
+          <option key={index} value={route.name}>
+            {route.name}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}

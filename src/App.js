@@ -33,6 +33,7 @@ function App() {
         selectedRoute={selectedRouteWithId} 
         setSelectedRoute={setSelectedRouteWithId} 
         showId={true} 
+        disabled={!selectedRoute} 
       />
       {selectedRouteWithId && <p>You selected: {selectedRouteWithId}</p>}
     </div>
@@ -40,5 +41,3 @@ function App() {
 }
 
 export default App;
-
-

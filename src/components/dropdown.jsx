@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Dropdown({ routes, selectedRoute, setSelectedRoute, showId }) {
+export default function Dropdown({ routes, selectedRoute, setSelectedRoute, showId, disabled }) {
   function handleChange(event) {
     setSelectedRoute(event.target.value);
   }
@@ -12,7 +12,7 @@ export default function Dropdown({ routes, selectedRoute, setSelectedRoute, show
 
   return (
     <div>
-      <select id="dropdown" value={selectedRoute} onChange={handleChange}>
+      <select id="dropdown" value={selectedRoute} onChange={handleChange} disabled={disabled}>
         <option value="">--Please choose an option--</option>
         {routes.map((route, index) => (
           <option key={index} value={route.name}>

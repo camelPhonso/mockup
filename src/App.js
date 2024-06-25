@@ -1,37 +1,26 @@
-import "./App.css";
-import Dropdown from "./components/dropdown";
-import getAllRoutes from "./utils/getAllRoutes";
-import { useEffect, useState } from "react";
+import React from "react";
 
-function App() {
-  const [allRoutes, setAllRoutes] = useState([]);
-  const [selectedRoute, setSelectedRoute] = useState('');
-  const [selectedRouteWithId, setSelectedRouteWithId] = useState('');
+export default function Dropdown({ routes, selectedRoute, setSelectedRoute, showId, disabled }) {
+  function handleChange(event) {
+    setSelectedRoute(event.target.value);
+  }
 
-  useEffect(() => {
-    const fetch = async () => {
-      const fetchedRoutes = await getAllRoutes();
-      setAllRoutes(fetchedRoutes);
-    };
-
-    fetch();
-  }, []);
+  // Ensure routes are defined before accessing them
+  if (!routes || routes.length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div className="App">
-      <h1>Your Component should be showing on this page!!!</h1>
-      <Dropdown 
-        routes={allRoutes} 
-        selectedRoute={selectedRoute} 
-        setSelectedRoute={setSelectedRoute} 
-        showId={false} 
-      />
-      {selectedRoute && <p>You selected: {selectedRoute}</p>}
-
-      
-      {selectedRouteWithId && <p>You selected: {selectedRouteWithId}</p>}
+    <div>
+      <select id="dropdown" value={selectedRoute} onChange={handleChange} disabled={disabled}>
+        <option value="">--Please choose an option--</option>
+        {routes.map((route, index) => (
+          <option key={index} value={route.name}>
+            {route.name} {showId && `(${route.routeId})`}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
 
-export default App;

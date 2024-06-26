@@ -2,6 +2,7 @@ import "./App.css";
 import Dropdown from "./components/dropdown";
 import getAllRoutes from "./utils/getAllRoutes";
 import { useEffect, useState } from "react";
+import Button from "./components/button";
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([]);
@@ -50,6 +51,7 @@ function App() {
       />
       )}
       {selectedRouteWithId && <p>You selected: {selectedRouteWithId}</p>}
+      <Button selectedRoute={selectedRoute} />
     </div>
   );
 }

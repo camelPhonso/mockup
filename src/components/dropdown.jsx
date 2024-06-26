@@ -21,6 +21,7 @@ export default function Dropdown({ routes, selectedRoute, setSelectedRoute, show
         {routes.map((route, index) => (
           // Maps through the routes and create an option for each route
           <option key={index} value={route.name}>
+            <option key={index} value={route.name}></option>          
             {route.name} {showId && `(${route.routeId})`}
             {/* Show route ID if showId prop is true */}
           </option>

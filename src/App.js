@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Your Component should be showing on this page!!!</h1>
+      <h1>Your Component should be showing on this page!</h1>
       <Dropdown 
         routes={allRoutes} 
         // Pass the fetched routes as a prop
@@ -35,6 +35,7 @@ function App() {
       />
       {selectedRoute && <p>You selected: {selectedRoute}</p>}
       {/* short handed if statement is shown with the && */}
+      {selectedRoute && (
       <Dropdown 
         routes={allRoutes} 
         // Pass the fetched routes as a prop
@@ -47,6 +48,7 @@ function App() {
         disabled={!selectedRoute} 
         // Disable this dropdown if no selection is made in the first dropdown
       />
+      )}
       {selectedRouteWithId && <p>You selected: {selectedRouteWithId}</p>}
     </div>
   );
